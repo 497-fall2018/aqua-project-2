@@ -1,0 +1,15 @@
+﻿.navbar {
+	border: none;
+	background-color: inherit;
+}
+
+.navbar-text {
+	text-decoration: none !important;
+	color: white !important;
+
+}
+.header {
+	font-weight: bold;
+}
+
+

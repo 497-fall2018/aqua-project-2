@@ -1,0 +1,47 @@
+{
+  "name": "fsweb",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "apollo-boost": "^0.1.13",
+    "axios": "^0.18.0",
+    "cors": "^2.8.4",
+    "date-format": "^1.2.0",
+    "express": "^4.16.3",
+    "graphql": "^0.13.2",
+    "history": "^4.7.2",
+    "moment": "^2.22.1",
+    "mysql": "^2.15.0",
+    "querystring": "^0.2.0",
+    "react": "^16.3.2",
+    "react-apollo": "^2.2.4",
+    "react-avatar": "^2.5.1",
+    "react-bootstrap": "^0.32.1",
+    "react-dates": "^16.6.1",
+    "react-dom": "^16.3.2",
+    "react-dropdown": "^1.4.0",
+    "react-loading": "^2.0.0",
+    "react-modal": "^3.4.2",
+    "react-responsive": "^4.1.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.1",
+    "react-time-picker": "^2.3.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "proxy": "http://localhost:8080",
+  "devDependencies": {
+    "eslint": "^5.4.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^3.0.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-prettier": "^2.6.2",
+    "eslint-plugin-react": "^7.11.1",
+    "prettier": "^1.14.2"
+  }
+}

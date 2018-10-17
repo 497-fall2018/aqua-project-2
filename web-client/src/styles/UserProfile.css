@@ -1,0 +1,31 @@
+.userprofile-container {
+    width: 15%;
+    background: #FFFFFF;
+    -webkit-box-shadow: 1px 0 5px 0 rgba(0,0,0,0.50);
+    box-shadow: 1px 0 5px 0 rgba(0,0,0,0.50);
+    height: 100vh;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+}
+
+
+
+.user-name {
+    margin-top: 10px;
+}
+.user-picture {
+    width:78px;
+    height: 78px;
+    border-radius: 50%;
+    background-color: #B6D5F9;
+    /* clip-path: circle(78px at center); */
+}
+
+@media only screen and (max-width: 528px) {
+    .user-picture {
+        display: none;
+    }
+}

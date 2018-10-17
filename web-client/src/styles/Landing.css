@@ -1,0 +1,66 @@
+
+
+.landing{
+	height: 100vh;
+	width: 100vw;
+
+	/* filter: blur() */
+	overflow: hidden;
+	display: flex;
+	justify-content: flex-end
+}
+
+.landing-image {
+	height: 100vh;
+	width: 100vw;
+	background-size: cover;
+	filter: brightness(85%);
+	background-image: url('./gaby-yu-596529-unsplash.jpg');
+	background-repeat: none;
+	background-position-y: 50%;
+}
+
+.container {
+	margin-left: none;
+}
+
+.LandingMain{
+	height: 100vh;
+}
+
+.login-container {
+	display: flex;
+    width: 30vw;
+	justify-content: center;
+    background-color: white;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* Mobile Login Container */
+
+@media only screen and (max-width: 800px) {
+	.login-container {
+		z-index: -1;
+		width: 100vw;
+	}
+	.landing-image{
+		display: none;
+	}
+
+}
+
+/*******************/
+
+.landing-jumbo {
+	margin-bottom: 0;
+	height: 50vh;
+	padding-left: 5vw;
+	padding-top:  10vh;
+	width: 70vw;
+
+	background-color: inherit;
+	color: white;
+}

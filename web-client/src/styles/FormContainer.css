@@ -1,0 +1,29 @@
+
+.background-rect {
+    text-align: center;
+    height: 100%;
+
+    display: table-cell;
+
+    padding: 30px;
+}
+
+
+.form-button{
+    margin-top: 10px;
+    width: 100%;
+}
+
+.input-login {
+    width: 100%;
+}
+
+
+
+.inputs{
+    margin-bottom: 30px;
+    text-align: left;
+    text-decoration-color: black;
+}
+
+
