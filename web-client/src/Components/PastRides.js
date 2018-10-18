@@ -4,7 +4,7 @@ import '../styles/PastRides.css';
 class PastRides extends Component{
     constructor(props) {
         super(props);
-    
+
         this.state = {};
       }
     render(){
@@ -12,7 +12,7 @@ class PastRides extends Component{
             <div className="past-rides">
                 Past Rides:
                 <div>
-                    List of past rides
+                  
                 </div>
             </div>
 
