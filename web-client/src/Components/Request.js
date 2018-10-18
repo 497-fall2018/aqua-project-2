@@ -34,12 +34,14 @@ class Request extends Component {
 
   tempSubmit=()=>{
     this.setState({tempClass: "request-ride-submitted"})
+    this.props.onSubmitHandler;
   }
 
   render() {
     const { destination, time } = this.state;
 
     return (
+      
       <form className={this.state.tempClass} onSubmit={this.handleSubmit}>
       <img className="logo" src={require("../assets/images/FSLogo.svg")} />
         <div className="request-ride-airport-container">
