@@ -1,0 +1,7 @@
+.past-rides{
+    padding-top:200px;
+    margin-left: 17px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}

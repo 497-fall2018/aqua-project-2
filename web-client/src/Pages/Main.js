@@ -7,6 +7,7 @@ import UserProfile from '../Components/UserProfile';
 import MatchedUser from '../Components/MatchedUser';
 import Request from '../Components/Request';
 
+
 //     mutation {
 //         addRequest(destination: "O'Hare", timeBuffer: 1111) {
 //           destination
@@ -38,7 +39,6 @@ class Main extends Component {
     return (
       <div className="main-body">
         <UserProfile />
-
         {/* SELECT Destination */}
         <div className="feed-container">
           <Request />
@@ -51,7 +51,7 @@ class Main extends Component {
             min="1"
             max="9"
             value={digits[0]}
-            name={0}
+             name={0}
             onChange={this.handleTimeChange}
           />
           <input

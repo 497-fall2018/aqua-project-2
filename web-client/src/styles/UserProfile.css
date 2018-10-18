@@ -1,10 +1,9 @@
 .userprofile-container {
-    width: 15%;
+    width: 349px;
     background: #FFFFFF;
     -webkit-box-shadow: 1px 0 5px 0 rgba(0,0,0,0.50);
     box-shadow: 1px 0 5px 0 rgba(0,0,0,0.50);
     height: 100vh;
-    align-items: center;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -14,16 +13,21 @@
 
 
 .user-name {
-    margin-top: 10px;
+    position:absolute;
+    margin-top: 40px;
+    margin-left:110px;
+    border: 1px #000000
 }
 .user-picture {
     width:78px;
     height: 78px;
     border-radius: 50%;
     background-color: #B6D5F9;
+    margin-top:10px;
+    margin-left: 10px
     /* clip-path: circle(78px at center); */
 }
-
+.userprofile-container.past
 @media only screen and (max-width: 528px) {
     .user-picture {
         display: none;
