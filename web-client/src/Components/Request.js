@@ -6,7 +6,9 @@ class Request extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      tempClass: "request-ride"
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -20,6 +22,7 @@ class Request extends Component {
     // const { addRequest, getRequests } = this.props;
     const { destination, timeBuffer } = this.state;
     e.preventDefault();
+    console.log(e)
     // console.log(addRequest);
     // addRequest({
     //   variables: {
@@ -29,11 +32,15 @@ class Request extends Component {
     // }).then(getRequests.refetch());
   }
 
+  tempSubmit=()=>{
+    this.setState({tempClass: "request-ride-submitted"})
+  }
+
   render() {
     const { destination, time } = this.state;
 
     return (
-      <form className="request-ride" onSubmit={this.handleSubmit}>
+      <form className={this.state.tempClass} onSubmit={this.handleSubmit}>
       <img className="logo" src={require("../assets/images/FSLogo.svg")} />
         <div className="request-ride-airport-container">
           <div className="request-ride-category-header">Airport</div>
@@ -77,7 +84,7 @@ class Request extends Component {
           </select>
         </div>
         
-        <button className="request-ride-submit" type="submit">Find a ride</button>
+        <button className="request-ride-submit" onClick={this.tempSubmit} type="submit">Find a ride</button>
       </form>
     );
   }
