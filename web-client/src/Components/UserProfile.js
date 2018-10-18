@@ -11,8 +11,10 @@ class UserProfile extends Component {
   render() {
     return (
       <div className="userprofile-container">
-        <div className="user-picture" />
-        <div className="user-name">Zack Aslan</div>
+        <div className="welcome"> Welcome back, Zack! </div>
+        <div className="user-container">
+          <div className="user-picture" /><div className="user-name">Zack Aslan</div>
+        </div>
       </div>
     );
   }
