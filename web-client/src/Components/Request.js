@@ -34,7 +34,6 @@ class Request extends Component {
 
   tempSubmit=()=>{
     this.setState({tempClass: "request-ride-submitted"})
-    this.props.onSubmitHandler;
   }
 
   render() {
