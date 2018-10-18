@@ -7,12 +7,16 @@ class MatchedUser extends Component {
   }
 
   render() {
+    let {showRequest } = this.props
+    
+  if (showRequest) {
     return (
       <div className="matched-user-container">
         <div className="prof-pic" />
         Hello world!
       </div>
-    );
+  )}
+      else return null
   }
 }
 

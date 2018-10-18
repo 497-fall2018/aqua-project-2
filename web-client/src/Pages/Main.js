@@ -31,7 +31,13 @@ class Main extends Component {
       destination: '',
       timeBuffer: '',
       time: '',
+      showRequest: false,
     };
+  }
+
+  onSubmitHandler=()=>{
+    this.setState({showRequest:true})
+    console.log(this.state.showRequest)
   }
 
   render() {
@@ -42,7 +48,7 @@ class Main extends Component {
         {/* SELECT Destination */}
         <div className="feed-container">
           <Request />
-          <MatchedUser />
+          <MatchedUser showRequest={this.state.showRequest}/>
         </div>
 
         {/* <div className="time-inputs">
