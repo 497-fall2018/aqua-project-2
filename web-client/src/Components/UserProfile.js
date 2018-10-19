@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../styles/UserProfile.css';
-import PastRides from '../Components/PastRides';
+import PastRides from './PastRides';
 
 class UserProfile extends Component {
   constructor(props) {
@@ -12,12 +12,15 @@ class UserProfile extends Component {
   render() {
     return (
       <div className="userprofile-container">
-        <div className="welcome"> Welcome back, Zack! </div>
         <div className="user-container">
-          <div className="user-picture" />
-          <div className="user-name">Zack Aslan</div>
+          <img
+            className="user-picture"
+            src="https://i.pinimg.com/originals/f6/34/b9/f634b90aa5bdc4f7b6ed59bd553e97e5.jpg"
+          />
+          Zack Aslan
         </div>
-        <PastRides/>
+
+        <PastRides />
       </div>
     );
   }

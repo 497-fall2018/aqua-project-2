@@ -1,17 +1,15 @@
 .userprofile-container {
-    width: 20%;
-    background: #FFFFFF;
-    -webkit-box-shadow: 1px 0 5px 0 rgba(0,0,0,0.50);
-    box-shadow: 1px 0 5px 0 rgba(0,0,0,0.50);
-    height: 100vh;
-    align-items: center;
-    flex-wrap: wrap;
-    flex-direction: column;
-
+  width: 20%;
+  background: #ffffff;
+  -webkit-box-shadow: 1px 0 5px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 0 5px 0 rgba(0, 0, 0, 0.5);
+  height: 100vh;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 
-
-.welcome{
+.welcome {
   font-weight: bold;
   font-family: sans-serif;
   font-size: 2vh;
@@ -19,35 +17,39 @@
 
 .user-container {
   width: 100%;
-  height: auto;
+  display: flex;
+  height: 9em;
+  flex-wrap: wrap;
   margin-top: 1.5vh;
-  float:left;
+  /* float: left; */
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .user-name {
-    width: auto;
-    height: auto;
-    font-size: 1.8vh;
-    margin-top: 15%;
-    margin-left: 19%;
-    margin-right: 2%;
-    border-width: 2px;
-    border-color: black;
-    border-style: solid;
-
+  width: auto;
+  height: auto;
+  font-size: 1.8vh;
+  margin-top: 15%;
+  margin-left: 19%;
+  margin-right: 2%;
+  border-width: 2px;
+  border-color: black;
+  border-style: solid;
 }
 .user-picture {
-    width: 35%;
-    padding-top: 35%;
-    margin-left: 4px;
-    border-radius: 50%;
-    background-color: #B6D5F9;
-    float: left;
-    /* clip-path: circle(78px at center); */
+  height: 90px;
+  width: 90px;
+  border-radius: 50%;
+  margin-left: 4px;
+  border-radius: 50%;
+
+  /* clip-path: circle(78px at center); */
 }
 
 @media only screen and (max-width: 528px) {
-    .user-picture {
-        display: none;
-    }
+  .user-picture {
+    display: none;
+  }
 }

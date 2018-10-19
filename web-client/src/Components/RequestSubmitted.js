@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-
 import '../styles/Request.css';
 
-class Request extends Component {
+class RequestSubmitted extends Component {
   constructor(props) {
     super(props);
 
@@ -11,36 +10,17 @@ class Request extends Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
 
-  handleSubmit(e) {
-    // const { addRequest, getRequests } = this.props;
-    const { destination, timeBuffer } = this.state;
-    e.preventDefault();
-    console.log(e);
-    // console.log(addRequest);
-    // addRequest({
-    //   variables: {
-    //     destination,
-    //     timeBuffer,
-    //   },
-    // }).then(getRequests.refetch());
-  }
-
-  tempSubmit = () => {
-    this.setState({ tempClass: 'request-ride-submitted' });
-  };
-
   render() {
     const { destination, time } = this.state;
 
     return (
-      <div className={this.state.tempClass}>
+      <div className="request-ride-submitted">
         <img className="logo" src={require('../assets/images/FSLogo.svg')} />
         <div className="request-ride-airport-container">
           <div className="request-ride-category-header">Airport</div>
@@ -90,4 +70,4 @@ class Request extends Component {
   }
 }
 
-export default Request;
+export default RequestSubmitted;

@@ -6,7 +6,7 @@ import { getUsersQuery, addRequest, getRequests } from '../queries/queries';
 import UserProfile from '../Components/UserProfile';
 import MatchedUser from '../Components/MatchedUser';
 import Request from '../Components/Request';
-
+import RequestSubmitted from '../Components/RequestSubmitted';
 
 //     mutation {
 //         addRequest(destination: "O'Hare", timeBuffer: 1111) {
@@ -35,10 +35,12 @@ class Main extends Component {
     };
   }
 
-  onSubmitHandler=()=>{
-    this.setState({showRequest:true})
-    console.log(this.state.showRequest)
-  }
+  onSubmitHandler = e => {
+    console.log(e.target);
+    this.setState({ showRequest: true });
+    this.setState({ changeRequest: true });
+    console.log(this.state.showRequest);
+  };
 
   render() {
     const { getRequests } = this.props;
@@ -47,25 +49,52 @@ class Main extends Component {
         <UserProfile />
         {/* SELECT Destination */}
         <div className="feed-container">
-          <Request />
-          <div className = "profiles">
-            <MatchedUser showRequest={true} name = 'Daniel Kim' time = '10:30AM' location = 'South Campus'/>
-            <MatchedUser showRequest={true} name = 'James Xie' time = '10:25AM' location = 'North Campus'/>
-            <MatchedUser showRequest={true} name = 'Khalil Anderson' time = '10:40AM' location = 'South Campus'/>
-            <MatchedUser showRequest={true} name = 'Tanya Kumbharageri' time = '10:30AM' location = 'North Campus'/>
+          {this.state.changeRequest ? (
+            <RequestSubmitted />
+          ) : (
+            <Request onSubmitHandler={this.onSubmitHandler} />
+          )}
+          {this.state.showRequest ? (
+            <div className="profiles">
+              <MatchedUser
+                showRequest={true}
+                name="Daniel Kim"
+                time="10:30AM"
+                location="South Campus"
+              />
+              <MatchedUser
+                showRequest={true}
+                name="James Xie"
+                time="10:25AM"
+                location="North Campus"
+              />
+              <MatchedUser
+                showRequest={true}
+                name="Khalil Anderson"
+                time="10:40AM"
+                location="South Campus"
+              />
+              <MatchedUser
+                showRequest={true}
+                name="Tanya Kumbharageri"
+                time="10:30AM"
+                location="North Campus"
+              />
 
-            <MatchedUser showRequest={true} name = 'Professor Riesbeck' time = '10:30AM' location = 'South Campus'/>
-            <MatchedUser showRequest={true} name = 'Morton Shapiro' time = '10:30AM' location = 'North Campus'/>
-
-            
-
-
-            
-            {/* <MatchedUser showRequest={true} name = "James Xie" time = '10:40AM' location = 'North Campus'/>
-            <MatchedUser showRequest={true} name = "Khalil Anderson" time = '10:25AM' location = 'North Campus'/>
-            <MatchedUser showRequest={true} name = "Tanya Kumbharageri" time = '10:30AM' location = 'South Campus'/> */}
-
-          </div>
+              <MatchedUser
+                showRequest={true}
+                name="Professor Riesbeck"
+                time="10:30AM"
+                location="South Campus"
+              />
+              <MatchedUser
+                showRequest={true}
+                name="Morton Shapiro"
+                time="10:30AM"
+                location="North Campus"
+              />
+            </div>
+          ) : null}
         </div>
 
         {/* <div className="time-inputs">
