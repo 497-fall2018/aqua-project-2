@@ -48,7 +48,24 @@ class Main extends Component {
         {/* SELECT Destination */}
         <div className="feed-container">
           <Request />
-          <MatchedUser showRequest={this.state.showRequest}/>
+          <div className = "profiles">
+            <MatchedUser showRequest={true} name = 'Daniel Kim' time = '10:30AM' location = 'South Campus'/>
+            <MatchedUser showRequest={true} name = 'James Xie' time = '10:25AM' location = 'North Campus'/>
+            <MatchedUser showRequest={true} name = 'Khalil Anderson' time = '10:40AM' location = 'South Campus'/>
+            <MatchedUser showRequest={true} name = 'Tanya Kumbharageri' time = '10:30AM' location = 'North Campus'/>
+
+            <MatchedUser showRequest={true} name = 'Professor Riesbeck' time = '10:30AM' location = 'South Campus'/>
+            <MatchedUser showRequest={true} name = 'Morton Shapiro' time = '10:30AM' location = 'North Campus'/>
+
+            
+
+
+            
+            {/* <MatchedUser showRequest={true} name = "James Xie" time = '10:40AM' location = 'North Campus'/>
+            <MatchedUser showRequest={true} name = "Khalil Anderson" time = '10:25AM' location = 'North Campus'/>
+            <MatchedUser showRequest={true} name = "Tanya Kumbharageri" time = '10:30AM' location = 'South Campus'/> */}
+
+          </div>
         </div>
 
         {/* <div className="time-inputs">
