@@ -13,13 +13,13 @@
   margin-top: 2vh;
   /* float: left; */
   flex-direction: column;
-  align-items: center;
   justify-content: space-between;
 
 }
 
 .user-picture {
   height: 110px;
+  align-self: center;
   width: 110px;
   border-radius: 50%;
   border: 4px solid #E1E1E1;
@@ -28,14 +28,17 @@
 
   /* clip-path: circle(78px at center); */
 }
+.username{
+  align-self: center;
+}
 .edit-profile{
   position: absolute;
   background: #ffffff;
   border: none;
-  margin-top: -5px;
   flex-wrap: wrap;
   flex-direction: column;
-  margin-left: 20px;
+margin-top: 8%;
+  align-self: flex-end
 }
 .contact-details{
   border-top: 1px solid #E1E1E1;
@@ -50,6 +53,7 @@
   margin-top: 10px;
   padding-top: 10px;
   margin-left: 10px;
+  height:68px;
   flex-wrap: wrap;
   flex-direction: column;
   margin-right: 10px;

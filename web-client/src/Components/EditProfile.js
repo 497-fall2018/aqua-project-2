@@ -61,14 +61,14 @@ class EditProfile extends Component{
             <div className="inputBio">Bio   
             <textarea
             name="Bio"
-            defaultValue="CS student at Northwestern"
+            defaultValue="CS student at Northwestern University."
             onChange={this.handleChange}
             description="Bio"
             type="text"
             />
             </div>
             <button className="save-profile" onClick={this.submitHandler}>
-              <img src={saveIcon} height="25" width="40"/> 
+              <img src={saveIcon} height="27" width="45"/> 
             </button>
             </div>
 
