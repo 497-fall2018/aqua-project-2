@@ -1,29 +1,28 @@
 import React,{Component} from 'react';
 import '../styles/EditProfile.css';
 import saveIcon from '../assets/images/save.jpg';
-import UserProfile from './UserProfile';
 
 class EditProfile extends Component{
     constructor(props) {
     super(props); // access props
     
+    this.submitHandler = this.submitHandler.bind(this);
     this.state = {
-     Name:'',
-     Phone: '',
-     Email: '',
-     Bio:'',
-     showProfile: true
-     };
+      showPastRides: false
+    };
     }
-    displayProfile=()=>{
-        this.setState({ showProfile: false });
+    submitHandler(evt) {
+        evt.preventDefault();
+        this.state = {
+            showPastRides: true
+          };
+        this.props.handlerFromParant(this.state.showPastRides);
     }
     handleChange() {
     }
     render(){
         return(
             <div className="userprofile-container-form">
-            {this.state.showProfile ? (
                 <div className="userprofile-form">
                 
             <img
@@ -68,14 +67,10 @@ class EditProfile extends Component{
             type="text"
             />
             </div>
-            <button className="save-profile" onClick={this.displayProfile}>
+            <button className="save-profile" onClick={this.submitHandler}>
               <img src={saveIcon} height="25" width="40"/> 
             </button>
             </div>
-           
-          ) : <UserProfile/>
-        }
-
 
           </div>
         );
