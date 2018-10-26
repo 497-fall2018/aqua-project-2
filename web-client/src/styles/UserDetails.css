@@ -1,0 +1,11 @@
+.userdetails-container {
+    width: 20%;
+    background: #ffffff;
+    -webkit-box-shadow: 1px 0 5px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 1px 0 5px 0 rgba(0, 0, 0, 0.5);
+    height: 100%;
+    align-items: center;
+    overflow: hidden;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }

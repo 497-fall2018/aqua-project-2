@@ -1,0 +1,77 @@
+ .userprofile-form{
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    flex-wrap: wrap;
+    margin-top: 2vh;
+    /* float: left; */
+    flex-direction: column;
+  }
+  
+  .euser-picture {
+    height: 110px;
+    width: 110px;
+    margin-bottom: 30px;
+    margin-left: 26%;
+    border-radius: 50%;
+    border: 4px solid #E1E1E1;
+    border-style: double;
+    justify-content: space-between;
+    border-radius: 50%;
+  
+    /* clip-path: circle(78px at center); */
+  }
+  .save-profile{
+    position: absolute;
+    background: #ffffff;
+    border: none;
+    margin-top: 320px;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .inputName, .inputBio, .inputEmail, .inputPhone{
+    margin-top: 10px;
+    margin-left: 10px;
+    flex-wrap: wrap;
+    font-weight: bold;
+    font-size: 11px;
+    flex-direction: column;
+    margin-right: 10px;
+  }
+  
+  @media only screen and (max-width: 528px) {
+    .user-picture {
+      display: none;
+    }
+  }
+  input[type=text]{
+    border: none;
+    font-weight: normal;
+    border-radius: 0px;
+    font-size: 14px;
+    border-bottom: 1px solid #E1E1E1;
+    margin-left: 5px;
+}
+textarea{
+    font-size: 14px;
+    margin-top: 5px;
+    font-weight: normal;
+    height: 50px;
+    border: none;
+    width: 100%;
+    border-bottom: 1px solid #E1E1E1;
+}
+input[type=text]:hover{
+    border-bottom: 1px solid #6EB8ED;
+}
+textarea:hover{
+    border-bottom: 1px solid #6EB8ED;
+}
+input[type=text]:focus{
+    outline: none;
+    border-bottom: 1px solid #6EB8ED;
+}
+textarea:focus{
+    outline: none;
+    border-bottom: 1px solid #6EB8ED;
+}

@@ -3,7 +3,7 @@ import '../styles/Main.css';
 import { gql } from 'apollo-boost';
 import { graphql, compose } from 'react-apollo';
 import { getUsersQuery, addRequest, getRequests } from '../queries/queries';
-import UserProfile from '../Components/UserProfile';
+import UserDetails from '../Components/UserDetails'
 import MatchedUser from '../Components/MatchedUser';
 import Request from '../Components/Request';
 import RequestSubmitted from '../Components/RequestSubmitted';
@@ -46,7 +46,7 @@ class Main extends Component {
     const { getRequests } = this.props;
     return (
       <div className="main-body">
-        <UserProfile />
+        <UserDetails />
         {/* SELECT Destination */}
         <div className="feed-container">
           {this.state.changeRequest ? (
