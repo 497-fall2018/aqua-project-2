@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import '../styles/UserProfile.css';
 import editIcon from '../assets/images/edit.jpg';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEdit} from '@fortawesome/free-solid-svg-icons'
+library.add(faEdit)
 
 class UserProfile extends Component {
   constructor(props) {
     super(props); // access props
+
     
     this.submitHandler = this.submitHandler.bind(this);
     this.state = {
@@ -28,7 +33,7 @@ class UserProfile extends Component {
           />         
           <div className="username"><h4><strong>{this.state.Username}</strong></h4></div>
           <button className="edit-profile" onClick={this.submitHandler}>
-            <img src={editIcon} height="30" width="30"/> 
+              <FontAwesomeIcon icon= "edit"/>
           </button>
        </div>
         <div className="contact-details">

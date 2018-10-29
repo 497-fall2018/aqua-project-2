@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import '../styles/EditProfile.css';
 import saveIcon from '../assets/images/save.jpg';
 
+
 class EditProfile extends Component{
     constructor(props) {
     super(props); // access props
@@ -66,7 +67,7 @@ class EditProfile extends Component{
             />
             </div>
             <button className="save-profile" onClick={this.submitHandler}>
-              <img src={saveIcon} height="27" width="45"/> 
+              Save
             </button>
             </div>
 
