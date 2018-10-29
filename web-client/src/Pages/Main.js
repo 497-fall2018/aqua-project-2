@@ -160,5 +160,3 @@ export default compose(
   graphql(addRequest, { name: 'addRequest' }),
   graphql(getRequests, { name: 'getRequests' })
 )(Main);
-
-// export default Main;

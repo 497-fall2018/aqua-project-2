@@ -55,6 +55,10 @@ class Request extends Component {
           </select>
         </div>
         {/* SELECT time, type="time" converts to military time thing */}
+        <div className="request-ride-date-container">
+          <div className="request-ride-category-header">Date</div>
+          <input className="request-ride-date-input" type="date" name="date" />
+        </div>
         <div className="request-ride-time-container">
           <div className="request-ride-category-header">Time</div>
           <input
@@ -65,10 +69,7 @@ class Request extends Component {
             onChange={this.handleChange}
           />
         </div>
-        <div className="request-ride-date-container">
-          <div className="request-ride-category-header">Date</div>
-          <input className="request-ride-date-input" type="date" name="date" />
-        </div>
+
         <div className="request-ride-pickup-container">
           <div className="request-ride-category-header">Pickup Location</div>
           <select

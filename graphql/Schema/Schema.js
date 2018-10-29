@@ -11,8 +11,8 @@ const {
   GraphQLSchema,
 } = graphql;
 const _ = require('lodash');
-const User = require('../../models/user');
-const Request = require('../../models/request');
+// const User = require('../../models/user');
+// const Request = require('../../models/request');
 
 const UserType = new GraphQLObjectType({
   name: 'User',
@@ -94,23 +94,23 @@ const Mutation = new GraphQLObjectType({
   name: 'Mutation',
   fields: {
     // add user to the database with first/last name and email
-    addUser: {
-      type: UserType,
-      args: {
-        firstName: { type: GraphQLString },
-        lastName: { type: GraphQLString },
-        email: { type: GraphQLString },
-      },
-      resolve(parent, args) {
-        const user = new User({
-          firstName: args.firstName,
-          lastName: args.lastName,
-          email: args.email,
-        });
+    // addUser: {
+    //   type: UserType,
+    //   args: {
+    //     firstName: { type: GraphQLString },
+    //     lastName: { type: GraphQLString },
+    //     email: { type: GraphQLString },
+    //   },
+    //   resolve(parent, args) {
+    //     const user = new User({
+    //       firstName: args.firstName,
+    //       lastName: args.lastName,
+    //       email: args.email,
+    //     });
 
-        return user.save();
-      },
-    },
+    //     return user.save();
+    //   },
+    // },
     addRequest: {
       type: RequestType,
       args: {

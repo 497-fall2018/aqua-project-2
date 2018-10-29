@@ -114,132 +114,132 @@ router.get('/', (req, res) => {
 //   console.log('Connected to mongoose!');
 // });
 
-const User = require('./models/user');
-const Request = require('./models/request');
+// const User = require('./models/user');
+// const Request = require('./models/request');
 
 // -=-=-=-=-=-=-=-=-=-
 // Request Routes
 // -=-=-=-=-=-=-=-=-=-
 
-router
-  .route('/requests')
+// router
+//   .route('/requests')
 
-  // create an article
-  .post((req, res) => {
-    console.log('POST: requests');
+//   // create an article
+//   .post((req, res) => {
+//     console.log('POST: requests');
 
-    const request = new Request();
-    request.destination = req.body.destination;
-    request.desiredTime = req.body.desiredTime;
-    request.requester = req.body.requester;
-    request.timeBuffer = req.body.timeBuffer;
+//     const request = new Request();
+//     request.destination = req.body.destination;
+//     request.desiredTime = req.body.desiredTime;
+//     request.requester = req.body.requester;
+//     request.timeBuffer = req.body.timeBuffer;
 
-    console.log(req.body);
-    // save auction
-    request.save(err => {
-      // return the error in response if it exists
-      if (err) {
-        res.send(err);
-        console.log(err);
-      }
+//     console.log(req.body);
+//     // save auction
+//     request.save(err => {
+//       // return the error in response if it exists
+//       if (err) {
+//         res.send(err);
+//         console.log(err);
+//       }
 
-      res.json({ message: 'Request created!' });
-    });
-  })
+//       res.json({ message: 'Request created!' });
+//     });
+//   })
 
-  // get route
-  .get((req, res) => {
-    console.log('GET: requests');
+//   // get route
+//   .get((req, res) => {
+//     console.log('GET: requests');
 
-    if (!req.query.userId) return;
+//     if (!req.query.userId) return;
 
-    const desiredUserId = req.query.userId;
-    console.log(desiredUserId);
+//     const desiredUserId = req.query.userId;
+//     console.log(desiredUserId);
 
-    Request.find({ requester: desiredUserId }, (err, requests) => {
-      if (err) {
-        res.send(err);
-        console.log(err);
-      }
+//     Request.find({ requester: desiredUserId }, (err, requests) => {
+//       if (err) {
+//         res.send(err);
+//         console.log(err);
+//       }
 
-      res.json(requests);
-    });
-  });
+//       res.json(requests);
+//     });
+//   });
 
-// -=-=-=-=-=-=-=-=-=-
-// User Routes
-// -=-=-=-=-=-=-=-=-=-
+// // -=-=-=-=-=-=-=-=-=-
+// // User Routes
+// // -=-=-=-=-=-=-=-=-=-
 
-router
-  .route('/users')
+// router
+//   .route('/users')
 
-  .get((req, res) => {
-    if (!req.query.username) {
-      console.log('ROUTE REQUIRES USERNAME');
-      return;
-    }
+//   .get((req, res) => {
+//     if (!req.query.username) {
+//       console.log('ROUTE REQUIRES USERNAME');
+//       return;
+//     }
 
-    User.findOne({ email: req.query.username }, (err, desiredUser) => {
-      if (err) {
-        res.send(err);
-        console.log(err);
-      }
+//     User.findOne({ email: req.query.username }, (err, desiredUser) => {
+//       if (err) {
+//         res.send(err);
+//         console.log(err);
+//       }
 
-      res.json(desiredUser);
-    });
-  })
+//       res.json(desiredUser);
+//     });
+//   })
 
-  // create an article
-  .post((req, res) => {
-    console.log('POST: users');
+//   // create an article
+//   .post((req, res) => {
+//     console.log('POST: users');
 
-    const user = new User();
-    user.email = req.body.email;
+//     const user = new User();
+//     user.email = req.body.email;
 
-    if (req.body.firstName) user.firstName = req.body.firstName;
+//     if (req.body.firstName) user.firstName = req.body.firstName;
 
-    if (req.body.lastName) user.lastName = req.body.lastName;
+//     if (req.body.lastName) user.lastName = req.body.lastName;
 
-    if (req.body.profileUrl) user.profileUrl = req.body.profileUrl;
+//     if (req.body.profileUrl) user.profileUrl = req.body.profileUrl;
 
-    if (req.body.school) user.school = req.body.school;
+//     if (req.body.school) user.school = req.body.school;
 
-    // save auction
-    user.save(err => {
-      // return the error in response if it exists
-      if (err) {
-        res.send(err);
-        console.log(err);
-      }
+//     // save auction
+//     user.save(err => {
+//       // return the error in response if it exists
+//       if (err) {
+//         res.send(err);
+//         console.log(err);
+//       }
 
-      res.json({ message: 'User created!' });
-    });
-  });
+//       res.json({ message: 'User created!' });
+//     });
+//   });
 
-// Route that accepts an incoming Id as a parameter
-// And either deletes or gets data for the given request
-router
-  .route('/users/:id')
+// // Route that accepts an incoming Id as a parameter
+// // And either deletes or gets data for the given request
+// router
+//   .route('/users/:id')
 
-  // Grab a request with the given ID
-  .get((req, res) => {
-    const requestId = req.params.id;
-    User.findById(requestId, (err, request) => {
-      res.json(request);
-    });
-  })
+//   // Grab a request with the given ID
+//   .get((req, res) => {
+//     const requestId = req.params.id;
+//     User.findById(requestId, (err, request) => {
+//       res.json(request);
+//     });
+//   })
 
-  // Delete request with a given ID
-  .delete((req, res) => {
-    console.log('DELETE: delete request');
+//   // Delete request with a given ID
+//   .delete((req, res) => {
+//     console.log('DELETE: delete request');
 
-    const requestId = req.params.id;
-    Request.remove({ _id: requestId }, err => {
-      console.log('ERROR: could not delete given resource.');
-    });
+//     const requestId = req.params.id;
+//     Request.remove({ _id: requestId }, err => {
+//       console.log('ERROR: could not delete given resource.');
+//     });
 
-    res.json({ message: 'Request deleted!' });
-  });
+//     res.json({ message: 'Request deleted!' });
+//   });
 
 // -=-=-=-=-=-=-=-=-=-
 // User Routes
