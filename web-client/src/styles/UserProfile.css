@@ -37,8 +37,14 @@
   border: none;
   flex-wrap: wrap;
   flex-direction: column;
-margin-top: 8%;
+margin-top: 10%;
   align-self: flex-end
+}
+.phone-details{
+  margin-top: 10px
+}
+.bio-info{
+  margin-top:10px
 }
 .contact-details{
   border-top: 1px solid #E1E1E1;

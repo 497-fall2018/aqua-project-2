@@ -21,7 +21,7 @@ class UserDetails extends Component {
     return (
       <div className="userdetails-container"> 
       {this.state.showPastRides ?
-        (<div><UserProfile handlerFromParant={this.handleData}/></div>)
+        <UserProfile handlerFromParant={this.handleData}/>
         : <EditProfile handlerFromParant={this.handleData}/>}
         <PastRides/>
         

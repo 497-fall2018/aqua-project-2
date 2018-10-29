@@ -7,16 +7,11 @@ class EditProfile extends Component{
     super(props); // access props
     
     this.submitHandler = this.submitHandler.bind(this);
-    this.state = {
-      showPastRides: false
-    };
+
     }
     submitHandler(evt) {
         evt.preventDefault();
-        this.state = {
-            showPastRides: true
-          };
-        this.props.handlerFromParant(this.state.showPastRides);
+        this.props.handlerFromParant(true);
     }
     handleChange() {
     }
@@ -29,6 +24,9 @@ class EditProfile extends Component{
               className="euser-picture"
               src="https://i.pinimg.com/originals/f6/34/b9/f634b90aa5bdc4f7b6ed59bd553e97e5.jpg"
             />
+            <div className = 'edit-info'>
+              <h4><strong>Edit Information</strong></h4>
+            </div>
             <div className="inputName">
             Name    
             <input
