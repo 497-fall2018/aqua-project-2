@@ -3,7 +3,7 @@ import '../styles/Main.css';
 import { gql } from 'apollo-boost';
 import { graphql, compose } from 'react-apollo';
 import { getUsersQuery, addRequest, getRequests } from '../queries/queries';
-import UserDetails from '../Components/UserDetails'
+import UserDetails from '../Components/UserDetails';
 import MatchedUser from '../Components/MatchedUser';
 import Request from '../Components/Request';
 import RequestSubmitted from '../Components/RequestSubmitted';
@@ -16,27 +16,58 @@ import RequestSubmitted from '../Components/RequestSubmitted';
 //       }
 // }`
 
-const Requests = getRequests =>
-  getRequests.data.loading ? (
+const Requests = requests => {
+  console.log(requests);
+  return requests.requests.loading ? (
     <div>loading</div>
   ) : (
-    getRequests.data.requests.map(request => <li key={request.id}>{request.destination}</li>)
+    // <div>hello</div>
+    requests.requests.requests.map(request => (
+      <li key={request.id}>
+        {request.time_buffer} {request.location_start} {request.location_end}
+      </li>
+    ))
   );
+};
 
 class Main extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      destination: '',
-      timeBuffer: '',
-      time: '',
+      // destination: '',
+      // timeBuffer: '',
+      // time: '',
       showRequest: false,
     };
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
   }
 
   onSubmitHandler = e => {
-    console.log(e.target);
+    const { addRequest, getRequests } = this.props;
+    const { date, location_end, time_departure, location_start } = this.state;
+    const time_buffer = 10;
+    e.preventDefault();
+    console.log(e);
+    console.log(addRequest);
+
+    //this is the problem below
+    addRequest({
+      variables: {
+        date: date,
+        time_buffer: time_buffer,
+        location_start: location_start,
+        location_end: location_end,
+        time_departure: time_departure,
+      },
+    });
+    // .then(getRequests.refetch());
+    // console.log(e.target);
     this.setState({ showRequest: true });
     this.setState({ changeRequest: true });
     console.log(this.state.showRequest);
@@ -46,13 +77,15 @@ class Main extends Component {
     const { getRequests } = this.props;
     return (
       <div className="main-body">
+        <Requests requests={getRequests} />
+        {console.log(getRequests.loading)}
         <UserDetails />
         {/* SELECT Destination */}
         <div className="feed-container">
           {this.state.changeRequest ? (
             <RequestSubmitted />
           ) : (
-            <Request onSubmitHandler={this.onSubmitHandler} />
+            <Request handleChange={this.handleChange} onSubmitHandler={this.onSubmitHandler} />
           )}
           {this.state.showRequest ? (
             <div className="profiles">

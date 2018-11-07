@@ -10,34 +10,40 @@ class Request extends Component {
       tempClass: 'request-ride',
     };
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleChange = this.handleChange.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
-  }
+  // handleChange(e) {
+  //   this.setState({ [e.target.name]: e.target.value });
+  // }
 
-  handleSubmit(e) {
-    // const { addRequest, getRequests } = this.props;
-    const { destination, timeBuffer } = this.state;
-    e.preventDefault();
-    console.log(e);
-    // console.log(addRequest);
-    // addRequest({
-    //   variables: {
-    //     destination,
-    //     timeBuffer,
-    //   },
-    // }).then(getRequests.refetch());
-  }
+  // handleSubmit(e) {
+  //   const { addRequest, getRequests } = this.props;
+  //   const { date, location_end, time_departure, location_start } = this.state;
+  //   const time_buffer = 10;
+  //   e.preventDefault();
+  //   console.log(e);
+  //   console.log(addRequest);
+
+  //   addRequest({
+  //     variables: {
+  //       date,
+  //       time_buffer,
+  //       location_start,
+  //       location_end,
+  //       time_departure,
+  //     },
+  //   }).then(getRequests.refetch());
+  // }
 
   tempSubmit = () => {
     this.setState({ tempClass: 'request-ride-submitted' });
   };
 
   render() {
-    const { destination, time } = this.state;
+    const { time_departure } = this.state;
+    const { handleChange } = this.props;
 
     return (
       <div className={this.state.tempClass}>
@@ -47,9 +53,12 @@ class Request extends Component {
           <select
             className="request-ride-airport-input"
             defaultValue="Select a Destination"
-            name="destination"
-            onChange={this.handleChange}
+            name="location_end"
+            onChange={handleChange}
           >
+            <option value="Select a Destination" disabled>
+              Select a Destination
+            </option>
             <option value="ohare">O'Hare International Airport</option>
             <option value="midway">Midway International Airport</option>
           </select>
@@ -57,16 +66,21 @@ class Request extends Component {
         {/* SELECT time, type="time" converts to military time thing */}
         <div className="request-ride-date-container">
           <div className="request-ride-category-header">Date</div>
-          <input className="request-ride-date-input" type="date" name="date" />
+          <input
+            className="request-ride-date-input"
+            type="date"
+            name="date"
+            onChange={handleChange}
+          />
         </div>
         <div className="request-ride-time-container">
           <div className="request-ride-category-header">Time</div>
           <input
             className="request-ride-time-input"
             type="time"
-            name="time"
-            value={time}
-            onChange={this.handleChange}
+            name="time_departure"
+            value={time_departure}
+            onChange={handleChange}
           />
         </div>
 
@@ -75,9 +89,10 @@ class Request extends Component {
           <select
             className="request-ride-pickup-input"
             defaultValue="Select a Pickup Location"
-            name="pickup"
+            name="location_start"
+            onChange={handleChange}
           >
-            <option value="anywhere">Anywhere</option>
+            <option value="Select a Pickup Location" />
             <option value="northCampus">North Campus</option>
             <option value="southCampus">South Campus</option>
           </select>

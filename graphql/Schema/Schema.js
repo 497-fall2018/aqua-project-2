@@ -30,9 +30,10 @@ const RequestType = new GraphQLObjectType({
     request_id: { type: GraphQLID },
     location_start: { type: GraphQLString },
     location_end: { type: GraphQLString },
-    time_departure: { type: GraphQLInt },
-    destination: { type: GraphQLString },
+    time_departure: { type: GraphQLString },
+    // destination: { type: GraphQLString },
     time_buffer: { type: GraphQLInt },
+    date: { type: GraphQLString },
   }),
 });
 
@@ -114,18 +115,23 @@ const Mutation = new GraphQLObjectType({
     addRequest: {
       type: RequestType,
       args: {
-        // destination: { type: GraphQLString },
+        date: { type: GraphQLString },
         time_buffer: { type: GraphQLInt },
         location_start: { type: GraphQLString },
         location_end: { type: GraphQLString },
+        time_departure: { type: GraphQLString },
       },
       async resolve(parent, args) {
+        console.log(args);
         const res = await db.query(
-          `INSERT INTO requests (location_start, location_end, time_buffer, id) VALUES (${
-            args.location_start
-          }, ${args.location_end}, ${args.time_buffer}, 1)`
+          `INSERT INTO requests VALUES (5, '${args.location_start}', '${args.location_end}', '${
+            args.time_departure
+          }', '${args.time_buffer}', 1, '${args.date}')`,
+          err => {
+            if (err) console.log(err);
+          }
         );
-        return res.rows;
+        return res.rows[0];
       },
     },
   },
