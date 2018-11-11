@@ -1,59 +1,68 @@
-.matched-user-container-items {
-  width: 85%;
-  height: 80%;
-  margin: auto;
-  margin-left: -8%;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  border: 1px solid rgb(191, 191, 191);
-  border-radius: 30px;
-}
-
 .matched-user-container {
-  width: 100%;
-  height: 20%;
-  margin-bottom: 4%;
-  margin-top: 4%;
+  /* background: rgb(231, 230, 230); */
+  margin-left: 15%;
+  margin-top:4%;
+  width: 70%;
+  height: 28%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
+  border: 1px solid #6EB8ED;
+  border-radius: 30px;
 }
 
 .prof-pic {
   border-radius: 50%;
-  /* position: absolute; */
   background-color: white;
-  height: 100px;
-  width: 100px;
-  /* top: 385px; */
-  /* left: 228px; */
+  height: 65px;
+  width: 65px;
   z-index: 1;
-  margin-left: 5%;
+  margin-left: 4%;
+  margin-top: 1.5%;
   border: 2px solid black;
-  margin: auto auto;
 }
 
 .profile-name {
-  border: 2px solid black;
+  margin-top: -5.5%;
   width: 30%;
   height: 40%;
-  margin: auto 0;
-  display: flex;
-  text-align: center;
-  margin-left: 3.5%;
+  margin-left: 15%;
 }
 
-.time {
-  margin: auto auto;
-  margin-left: 10%;
-}
-
-.location {
-  width: 40%;
-  margin: auto auto;
+.details {
+  margin-left: 60px;
+  font-size: 15px;
+  margin-top: 40px;
 }
 
 h4 {
+  font-size: 17px;
   margin: auto auto;
+}
+.user-buttons{
+  margin-top:-7.5%;
+  margin-left: 70%;
+}
+.contact{
+  background: none;
+  border-radius: 10%;
+  margin-right: 15px;
+  border:none;
+}
+.contact:hover{
+  background: rgb(189, 189, 189);
+  border-radius: 10%;
+  margin-right: 15px;
+  color: white;
+}
+.confirm{
+  background: rgb(37,52,74);
+  border: 1px;
+  border-radius: 10%;
+  color: white;
+}
+.confirm:hover{
+  background: black;
+  border-radius: 10%;
+  color: white;
 }
