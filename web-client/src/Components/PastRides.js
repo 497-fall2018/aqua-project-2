@@ -11,8 +11,7 @@ class PastRides extends Component {
   render() {
     return (
       <div className="past-rides">
-        Past Rides:
-        <div />
+        <button className="btn-pr"/*  onClick={}*/>Past Rides</button> 
       </div>
     );
   }
