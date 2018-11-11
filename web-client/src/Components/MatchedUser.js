@@ -5,6 +5,10 @@ class MatchedUser extends Component {
   constructor(props) {
     super(props);
   }
+  contactHandler(evt) {
+  }
+  confirmHandler(evt) {
+  }
 
   render() {
     const { showRequest } = this.props;
@@ -13,19 +17,23 @@ class MatchedUser extends Component {
       return (
         <div className="matched-user-container">
           <div className="prof-pic" />
-          <div className="matched-user-container-items">
             <div className="profile-name">
               <h4>
-                <strong>{this.props.name}</strong>
+                {this.props.name}
               </h4>
             </div>
-            <div className="time">
-              <h4>{this.props.time}</h4>
+            <div className="user-buttons">
+              <button className="contact" onClick={this.contactHandler}>Contact</button>
+              <button className="confirm" onClick={this.confirmHandler}>Confirm</button>
             </div>
-            <div className="location">
-              <h4>{this.props.location}</h4>
+            <div className="details">
+              {this.props.location}{' '}
+              <strong>{this.props.time}</strong>{' '}
+              -----------------------------------------------------{' '}
+              {this.props.airport}
             </div>
-          </div>
+            
+
         </div>
       );
     }
