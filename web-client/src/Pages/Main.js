@@ -94,24 +94,28 @@ class Main extends Component {
                 name="Daniel Kim"
                 time="10:30AM"
                 location="South Campus"
+                airport="O'Hare International Airport"
               />
               <MatchedUser
                 showRequest={true}
                 name="James Xie"
                 time="10:25AM"
                 location="North Campus"
+                airport="O'Hare International Airport"
               />
               <MatchedUser
                 showRequest={true}
                 name="Khalil Anderson"
                 time="10:40AM"
                 location="South Campus"
+                airport="O'Hare International Airport"
               />
               <MatchedUser
                 showRequest={true}
                 name="Tanya Kumbharageri"
                 time="10:30AM"
                 location="North Campus"
+                airport="O'Hare International Airport"
               />
 
               <MatchedUser
@@ -119,12 +123,14 @@ class Main extends Component {
                 name="Professor Riesbeck"
                 time="10:30AM"
                 location="South Campus"
+                airport="O'Hare International Airport"
               />
               <MatchedUser
                 showRequest={true}
                 name="Morton Shapiro"
                 time="10:30AM"
-                location="North Campus"
+                location="North Campus" 
+                airport="O'Hare International Airport"
               />
             </div>
           ) : null}
