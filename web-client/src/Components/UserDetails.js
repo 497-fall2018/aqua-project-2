@@ -3,6 +3,8 @@ import PastRides from './PastRides';
 import '../styles/UserDetails.css';
 import UserProfile from './UserProfile';
 import EditProfile from './EditProfile';
+import SearchHistory from './SearchHistory';
+import ScheduledRides from './ScheduledRides';
 
 class UserDetails extends Component {
   constructor(props) {
@@ -21,9 +23,13 @@ class UserDetails extends Component {
     return (
       <div className="userdetails-container"> 
       {this.state.showPastRides ?
-        <UserProfile handlerFromParant={this.handleData}/>
+        (<div><UserProfile handlerFromParant={this.handleData}/>
+          <div className="rides">
+              <ScheduledRides/>
+              <PastRides/>
+              <SearchHistory/>
+          </div></div>)
         : <EditProfile handlerFromParant={this.handleData}/>}
-        <PastRides/>
         
       </div>
     );
