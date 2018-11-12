@@ -137,6 +137,9 @@ class Main extends Component {
                 location="North Campus" 
                 airport="O'Hare International Airport"
               />
+              <div className="post">Didn't find a ride? Post yours
+              <button className="post-button" onClick={this.postHandler}>Post</button>
+              </div>
             </div>
           ) : null}
         </div>
