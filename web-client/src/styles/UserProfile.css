@@ -51,8 +51,7 @@ margin-top: 10%;
   margin-top:10px
 }
 .contact-details{
-  border-top: 1px solid #E1E1E1;
-  margin-top: 15px;
+  margin-top: 10px;
   padding-top: 10px;
   margin-left: 10px;
   flex-wrap: wrap;
@@ -60,7 +59,6 @@ margin-top: 10%;
   margin-right: 10px;
 }
 .bio-details{
-  margin-top: 40px;
   padding-top: 10px;
   margin-left: 10px;
   height:68px;
@@ -72,4 +70,11 @@ margin-top: 10%;
   .user-picture {
     display: none;
   }
+
 }
+
+/* header{
+  border-bottom: 1px solid white; 
+
+} */
+

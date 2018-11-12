@@ -16,19 +16,28 @@ class UserDetails extends Component {
   }
   handleData(data) {
     this.setState({
-      showPastRides: data
+      showPastRides: data,
     });
   }
+
   render() {
     return (
       <div className="userdetails-container"> 
       {this.state.showPastRides ?
         (<div><UserProfile handlerFromParant={this.handleData}/>
           <div className="rides">
+          <header>
+            <h4>
+            <em><strong>Scheduled Rides</strong></em>
+            </h4>
+          </header>
               <ScheduledRides/>
               <PastRides/>
-              <SearchHistory/>
-          </div></div>)
+          </div>
+          <div className = 'search-history'>
+            <SearchHistory/>
+          </div>
+        </div>)
         : <EditProfile handlerFromParant={this.handleData}/>}
         
       </div>

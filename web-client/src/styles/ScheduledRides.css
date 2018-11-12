@@ -1,1 +1,44 @@
-/* Startstyling */
+/* header{
+    border-bottom: 1px solid white;
+} */
+.current-ride-container{
+    border: 1px solid white;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-top: 5%;
+    border-radius: 5px;
+    padding-left: 3.5%;
+    padding-top: 2%;
+    padding-bottom:3.5%;
+    padding-right:3.5%
+}
+.Rider-container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-top:8px;
+}
+.Date{
+    margin-left: 17%;
+}
+.Time{
+    margin-left: 17%;
+}
+.riderName{
+    margin-left: 10px; 
+    margin-right:60px;
+}
+.rider-info{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-top:3px;
+}
+.rider-contact{
+    background: rgb(37,52,74);
+    border: 1px solid white;
+    border-radius: 5px;
+    margin-left: auto;
+}
+

@@ -39,6 +39,7 @@ class Main extends Component {
       // timeBuffer: '',
       // time: '',
       showRequest: false,
+
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -47,6 +48,9 @@ class Main extends Component {
   handleChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
+
+
+  
 
   onSubmitHandler = e => {
     const { addRequest, getRequests } = this.props;
@@ -77,9 +81,10 @@ class Main extends Component {
     const { getRequests } = this.props;
     return (
       <div className="main-body">
-        <Requests requests={getRequests} />
-        {console.log(getRequests.loading)}
-        <UserDetails />
+        {/* <Requests requests={getRequests} />
+        {console.log(getRequests.loading)} */}
+          <UserDetails />
+        
         {/* SELECT Destination */}
         <div className="feed-container">
           {this.state.changeRequest ? (
