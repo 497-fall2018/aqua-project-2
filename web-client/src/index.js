@@ -17,8 +17,8 @@ ReactDOM.render(
   <ApolloProvider client={client}>
     <Router history={history}>
       <Switch>
-        <Route path="/main" component={Main} />
-        <Route path="/" component={Landing} />
+        <Route path="/main" render={(props) => <Main />} />
+        <Route path="/" render={(props) => <Landing />} />
       </Switch>
     </Router>
   </ApolloProvider>,
