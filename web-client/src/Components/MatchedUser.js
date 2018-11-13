@@ -1,13 +1,23 @@
 import React, { Component } from 'react';
 import '../styles/MatchedUser.css';
+import axios from 'axios';
 
 class MatchedUser extends Component {
   constructor(props) {
     super(props);
+
+    this.confirmHandler = this.confirmHandler.bind(this)
   }
   contactHandler(evt) {
   }
   confirmHandler(evt) {
+    axios.get('http://localhost:8080/notify/'+this.props.recipient+'/'+this.props.user)
+    .then(res => {
+        console.log(res.data);
+    }).catch(err => {
+      console.log(err)
+    });
+
   }
 
   render() {
@@ -32,7 +42,7 @@ class MatchedUser extends Component {
               -----------------------------------------------------{' '}
               {this.props.airport}
             </div>
-            
+
 
         </div>
       );

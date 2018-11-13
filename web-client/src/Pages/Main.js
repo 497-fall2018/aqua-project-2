@@ -39,7 +39,7 @@ class Main extends Component {
       // timeBuffer: '',
       // time: '',
       showRequest: false,
-
+      user: 'jamesxie2019'
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -50,7 +50,7 @@ class Main extends Component {
   }
 
 
-  
+
 
   onSubmitHandler = e => {
     const { addRequest, getRequests } = this.props;
@@ -84,7 +84,7 @@ class Main extends Component {
         {/* <Requests requests={getRequests} />
         {console.log(getRequests.loading)} */}
           <UserDetails />
-        
+
         {/* SELECT Destination */}
         <div className="feed-container">
           {this.state.changeRequest ? (
@@ -100,6 +100,8 @@ class Main extends Component {
                 time="10:30AM"
                 location="South Campus"
                 airport="O'Hare International Airport"
+                recipient="jamesxie2019"
+                user={this.state.user}
               />
               <MatchedUser
                 showRequest={true}
@@ -107,6 +109,8 @@ class Main extends Component {
                 time="10:25AM"
                 location="North Campus"
                 airport="O'Hare International Airport"
+                recipient="danielkim2020"
+                user={this.state.user}
               />
               <MatchedUser
                 showRequest={true}
@@ -114,6 +118,8 @@ class Main extends Component {
                 time="10:40AM"
                 location="South Campus"
                 airport="O'Hare International Airport"
+                recipient="khanders"
+                user={this.state.user}
               />
               <MatchedUser
                 showRequest={true}
@@ -121,6 +127,8 @@ class Main extends Component {
                 time="10:30AM"
                 location="North Campus"
                 airport="O'Hare International Airport"
+                recipient="saikumbharageri2020"
+                user={this.state.user}
               />
 
               <MatchedUser
@@ -129,13 +137,17 @@ class Main extends Component {
                 time="10:30AM"
                 location="South Campus"
                 airport="O'Hare International Airport"
+                recipient="khanders"
+                user={this.state.user}
               />
               <MatchedUser
                 showRequest={true}
                 name="Morton Shapiro"
                 time="10:30AM"
-                location="North Campus" 
+                location="North Campus"
                 airport="O'Hare International Airport"
+                recipient="khanders"
+                user={this.state.user}
               />
               <div className="post">Didn't find a ride? Post yours
               <button className="post-button" onClick={this.postHandler}>Post</button>
