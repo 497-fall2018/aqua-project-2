@@ -6,12 +6,17 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    margin-top: 5%;
+    /* margin-top: 5%; */
     border-radius: 5px;
     padding-left: 3.5%;
     padding-top: 2%;
     padding-bottom:3.5%;
-    padding-right:3.5%
+    padding-right:3.5%;
+    font-size: 13px;
+    margin-bottom:15px;
+    margin-right:5px;
+    margin-top:15px;
+    
 }
 .Rider-container{
     display: flex;
@@ -20,14 +25,14 @@
     margin-top:8px;
 }
 .Date{
-    margin-left: 17%;
+    margin-left: 12%;
 }
 .Time{
-    margin-left: 17%;
+    margin-left: 12%;
 }
 .riderName{
     margin-left: 10px; 
-    margin-right:60px;
+    margin-right:40px;
 }
 .rider-info{
     display: flex;
