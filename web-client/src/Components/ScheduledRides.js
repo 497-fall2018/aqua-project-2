@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 library.add(faUser);
 
+
 class ScheduledRides extends Component {
   constructor(props) {
     super(props);
