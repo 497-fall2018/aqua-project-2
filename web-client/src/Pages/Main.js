@@ -3,10 +3,12 @@ import '../styles/Main.css';
 import { gql } from 'apollo-boost';
 import { graphql, compose } from 'react-apollo';
 import { getUsersQuery, addRequest, getRequests } from '../queries/queries';
+
 import UserDetails from '../Components/UserDetails';
 import MatchedUser from '../Components/MatchedUser';
 import Request from '../Components/Request';
 import RequestSubmitted from '../Components/RequestSubmitted';
+import PostRequest from '../Components/PostRequest';
 
 //     mutation {
 //         addRequest(destination: "O'Hare", timeBuffer: 1111) {
@@ -39,7 +41,12 @@ class Main extends Component {
       // timeBuffer: '',
       // time: '',
       showRequest: false,
-      user: 'jamesxie2019'
+      userName: "Willie Wildcat",
+      user: 'jamesxie2019',
+      location_end: "default",
+      date: "default",
+      time_departure: "default",
+      location_start: "default",
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -47,10 +54,8 @@ class Main extends Component {
 
   handleChange(e) {
     this.setState({ [e.target.name]: e.target.value });
+    console.log(e.target.value)
   }
-
-
-
 
   onSubmitHandler = e => {
     const { addRequest, getRequests } = this.props;
@@ -90,7 +95,9 @@ class Main extends Component {
           {this.state.changeRequest ? (
             <RequestSubmitted />
           ) : (
-            <Request handleChange={this.handleChange} onSubmitHandler={this.onSubmitHandler} />
+            <Request 
+              handleChange={this.handleChange} 
+              onSubmitHandler={this.onSubmitHandler} />
           )}
           {this.state.showRequest ? (
             <div className="profiles">
@@ -149,9 +156,15 @@ class Main extends Component {
                 recipient="khanders"
                 user={this.state.user}
               />
-              <div className="post">Didn't find a ride? Post yours
-              <button className="post-button" onClick={this.postHandler}>Post</button>
-              </div>
+              <PostRequest
+                name={this.state.userName}
+                airport={this.state.location_end}
+                date={this.state.date}
+                time={this.state.time_departure}
+                location={this.state.location_start}
+                recipient="khanders"
+                user={this.state.user}
+              />
             </div>
           ) : null}
         </div>
