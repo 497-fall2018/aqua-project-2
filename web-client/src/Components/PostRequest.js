@@ -6,9 +6,13 @@ class PostRequest extends Component{
         super(props);
     
         this.state = {
-          posted: true,
+          posted: false,
         };
     }
+
+    postHandler = () => {
+        this.setState({posted: !this.state.posted})
+    } 
 
     render (){
         if (this.state.posted){
