@@ -33,7 +33,8 @@ class MatchedUser extends Component {
               </h4>
             </div>
             <div className="user-buttons">
-              <button className="contact" onClick={this.contactHandler}>Contact</button>
+              {/* <button className="contact" onClick={this.contactHandler}>Contact</button> */}
+              <a className="contact" href={`mailto:${this.props.recipient+"@u.northwestern.edu"}`}>Contact</a>              
               <button className="confirm" onClick={this.confirmHandler}>Confirm</button>
             </div>
             <div className="details">
