@@ -123,10 +123,13 @@ const Mutation = new GraphQLObjectType({
       },
       async resolve(parent, args) {
         console.log(args);
+        const id = await db.query('SELECT max(request_id) FROM requests');
+        console.log(id.rows);
+        console.log(id.rows[0].max);
         const res = await db.query(
-          `INSERT INTO requests VALUES (5, '${args.location_start}', '${args.location_end}', '${
-            args.time_departure
-          }', '${args.time_buffer}', 1, '${args.date}')`,
+          `INSERT INTO requests VALUES (${id.rows[0].max + 1}, '${args.location_start}', '${
+            args.location_end
+          }', '${args.time_departure}', '${args.time_buffer}', 1, '${args.date}')`,
           err => {
             if (err) console.log(err);
           }

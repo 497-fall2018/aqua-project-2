@@ -30,7 +30,7 @@ const addRequest = gql`
 `;
 
 const getRequests = gql`
-  query {
+  {
     requests(id: 1) {
       request_id
       location_start

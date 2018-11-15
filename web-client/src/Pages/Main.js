@@ -7,6 +7,7 @@ import UserDetails from '../Components/UserDetails';
 import MatchedUser from '../Components/MatchedUser';
 import Request from '../Components/Request';
 import RequestSubmitted from '../Components/RequestSubmitted';
+import Rides from '../Rides';
 
 //     mutation {
 //         addRequest(destination: "O'Hare", timeBuffer: 1111) {
@@ -50,8 +51,7 @@ class Main extends Component {
 
   onSubmitHandler = e => {
     const { addRequest, getRequests } = this.props;
-    const { date, location_end, time_departure, location_start } = this.state;
-    const time_buffer = 10;
+    const { date, location_end, time_departure, location_start, time_buffer } = this.state;
     e.preventDefault();
     console.log(e);
     console.log(addRequest);
@@ -77,9 +77,10 @@ class Main extends Component {
     const { getRequests } = this.props;
     return (
       <div className="main-body">
-        <Requests requests={getRequests} />
+        {/* <Requests requests={getRequests} /> */}
         {console.log(getRequests.loading)}
         <UserDetails />
+        {/* <Rides /> */}
         {/* SELECT Destination */}
         <div className="feed-container">
           {this.state.changeRequest ? (
