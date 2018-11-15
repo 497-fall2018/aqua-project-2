@@ -33,21 +33,21 @@ class ScheduledRides extends Component {
                 <div className = 'riderName'>
                   Daniel Kim
                 </div>
-                <button className='rider-contact'>Contact</button>
+                <a className='rider-contact' href={`mailto:${"danielkim2020@u.northwestern.edu"}`}>Contact</a>
               </div>
               <div className = 'rider-info'>
                 <FontAwesomeIcon icon="user" />
                 <div className = 'riderName'>
                   Khalil Anderson
                 </div>
-                <button className='rider-contact'>Contact</button>
+                <a className='rider-contact' href={`mailto:${"khalilanderson2023@u.northwestern.edu"}`}>Contact</a>
               </div>
               <div className = 'rider-info'>
                 <FontAwesomeIcon icon="user" />
                 <div className = 'riderName'>
                   James Xie
                 </div>
-                <button className='rider-contact'>Contact</button>
+                <a className='rider-contact' href={`mailto:${"JamesXie2019@u.northwestern.edu"}`}>Contact</a>
               </div>
             </div>
               
