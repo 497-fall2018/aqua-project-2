@@ -49,8 +49,10 @@ class UserDetails extends Component {
                     <ScheduledRides />
                   </AccordionItem>
 
-                  <AccordionItem title="Past Rides" />
-
+                  <AccordionItem title="Past Rides">
+                    <PastRides />
+                  </AccordionItem>
+                  
                   <AccordionItem title="Search History">
                     <SHElement
                       airport="O'Hare International Airport"

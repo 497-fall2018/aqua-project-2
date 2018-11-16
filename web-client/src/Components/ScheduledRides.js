@@ -18,18 +18,18 @@ class ScheduledRides extends Component {
       <div className="scheduled-rides">
         <div className="current-ride-container">
           <div className="Airport">O'Hare</div>
-          <div className="Date">11/08/18</div>
-          <div className="Time">10:40 AM</div>
+          <div className="Date">03/02/19</div>
+          <div className="Time">10:30 AM</div>
           <div className="Rider-container">
             Fellow Riders:
             <div className="rider-info">
               <FontAwesomeIcon icon="user" />
-              <div className="riderName">Daniel Kim</div>
-              <a className="rider-contact" href={`mailto:${'danielkim2020@u.northwestern.edu'}`}>
+              <div className="riderName">Zack Aslan</div>
+              <a className="rider-contact" href={`mailto:${'sinanaslan2020@u.northwestern.edu'}`}>
                 Contact
               </a>
             </div>
-            <div className="rider-info">
+            {/* <div className="rider-info">
               <FontAwesomeIcon icon="user" />
               <div className="riderName">Khalil Anderson</div>
               <a
@@ -45,7 +45,7 @@ class ScheduledRides extends Component {
               <a className="rider-contact" href={`mailto:${'JamesXie2019@u.northwestern.edu'}`}>
                 Contact
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
