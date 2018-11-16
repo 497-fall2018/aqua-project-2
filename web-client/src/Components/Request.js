@@ -44,6 +44,7 @@ class Request extends Component {
   render() {
     const { time_departure } = this.state;
     const { handleChange } = this.props;
+    const { handleAirChange } = this.props;
 
     return (
       <div className={this.state.tempClass}>

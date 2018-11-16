@@ -1,5 +1,5 @@
 .userdetails-container {
-    width: 25%;
+    width: 30%;
     background: rgb(37,52,74);
     -webkit-box-shadow: 4px 0 5px 0 rgba(0, 0, 0, 0.5);
     box-shadow: 4px 0 5px 0 rgba(0, 0, 0, 0.5);
@@ -9,4 +9,29 @@
     flex-wrap: wrap;
     flex-direction: column;
     color:white;
+    border: 1px solid white; 
+  }
+  .rides
+  {
+    margin-top: 5%;
+    margin-left: 10px;
+    margin-right: 10px; 
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+  }
+  .search-history{
+    margin-top: 10%;
+    margin-left: 10px;
+    margin-right: 10px; 
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  /* h4{
+    border-bottom: 1px solid white; 
+  } */
+  strong{
+    border-bottom: 1px solid lightslategray;
   }

@@ -8,6 +8,7 @@ const crypto = require('crypto');
 const session = require('express-session');
 const cors = require('cors');
 const db = require('./db/db');
+var nodemailer = require('nodemailer')
 
 // const schema = buildSchema(`
 //     type Query {
@@ -87,11 +88,39 @@ const router = express.Router();
 //     console.log('reached /')
 // })
 
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'fareshare218@gmail.com',
+    pass: 'EECS497/'
+  }
+});
+
 router.get('/', (req, res) => {
   console.log('API has launched.');
   res.json({ message: 'API Base Endpoint.' });
 });
 
+
+app.get('/notify/:userId/:matchId', (req, res) => {
+  var recipient = req.params['userId']
+  var match = req.params['matchId']
+  var recipEmail =  recipient+'@u.northwestern.edu'
+  const mailOptions = {
+    from: 'fareshare218@gmail.com',
+    to: recipEmail,
+    subject: 'FareShare: New Match!',
+    html: '<p> Congrats, you just matched with ' + match + '</p><p>Check the app for more details</p>'
+  };
+
+  transporter.sendMail(mailOptions, function(err, info){
+    if(err)
+      console.log(err);
+    else
+      console.log(info);
+  });
+  res.send('notified ' + recipient)
+});
 // const client = new Client({
 //   user: 'szaslan',
 //   host: 'faresharedb.cvhjwsu7pmgh.us-east-2.rds.amazonaws.com',

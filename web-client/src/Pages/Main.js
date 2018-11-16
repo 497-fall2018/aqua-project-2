@@ -3,11 +3,13 @@ import '../styles/Main.css';
 import { gql } from 'apollo-boost';
 import { graphql, compose, Query } from 'react-apollo';
 import { getUsersQuery, addRequest, getRequests, getMatches } from '../queries/queries';
+
 import UserDetails from '../Components/UserDetails';
 import MatchedUser from '../Components/MatchedUser';
 import Request from '../Components/Request';
 import RequestSubmitted from '../Components/RequestSubmitted';
 import Rides from '../Rides';
+import PostRequest from '../Components/PostRequest';
 
 const Requests = requests => {
   console.log(requests);
@@ -48,6 +50,12 @@ class Main extends Component {
       time_buffer: 0,
       time: '',
       showRequest: false,
+      userName: "Willie Wildcat",
+      user: 'jamesxie2019',
+      location_end: "default",
+      date: "default",
+      time_departure: "default",
+      location_start: "default",
     };
     this.onSubmitHandler = this.onSubmitHandler.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -55,6 +63,7 @@ class Main extends Component {
 
   handleChange(e) {
     this.setState({ [e.target.name]: e.target.value });
+    console.log(e.target.value)
   }
 
   // getMatchesQuery() {
@@ -120,12 +129,18 @@ class Main extends Component {
         {console.log(variables)}
         {this.state.showRequest ? <GetMatchesQuery variables={variables} /> : null}
         {/* <Rides /> */}
+        {/* <Requests requests={getRequests} />
+        {console.log(getRequests.loading)} */}
+          <UserDetails />
+
         {/* SELECT Destination */}
         <div className="feed-container">
           {this.state.changeRequest ? (
             <RequestSubmitted />
           ) : (
-            <Request handleChange={this.handleChange} onSubmitHandler={this.onSubmitHandler} />
+            <Request 
+              handleChange={this.handleChange} 
+              onSubmitHandler={this.onSubmitHandler} />
           )}
           {this.state.showRequest ? (
             <div className="profiles">
@@ -134,24 +149,36 @@ class Main extends Component {
                 name="Daniel Kim"
                 time="10:30AM"
                 location="South Campus"
+                airport="O'Hare International Airport"
+                recipient="jamesxie2019"
+                user={this.state.user}
               />
               <MatchedUser
                 showRequest={true}
                 name="James Xie"
                 time="10:25AM"
                 location="North Campus"
+                airport="O'Hare International Airport"
+                recipient="danielkim2020"
+                user={this.state.user}
               />
               <MatchedUser
                 showRequest={true}
                 name="Khalil Anderson"
                 time="10:40AM"
                 location="South Campus"
+                airport="O'Hare International Airport"
+                recipient="khanders"
+                user={this.state.user}
               />
               <MatchedUser
                 showRequest={true}
                 name="Tanya Kumbharageri"
                 time="10:30AM"
                 location="North Campus"
+                airport="O'Hare International Airport"
+                recipient="saikumbharageri2020"
+                user={this.state.user}
               />
 
               <MatchedUser
@@ -159,12 +186,27 @@ class Main extends Component {
                 name="Professor Riesbeck"
                 time="10:30AM"
                 location="South Campus"
+                airport="O'Hare International Airport"
+                recipient="khanders"
+                user={this.state.user}
               />
               <MatchedUser
                 showRequest={true}
                 name="Morton Shapiro"
                 time="10:30AM"
                 location="North Campus"
+                airport="O'Hare International Airport"
+                recipient="khanders"
+                user={this.state.user}
+              />
+              <PostRequest
+                name={this.state.userName}
+                airport={this.state.location_end}
+                date={this.state.date}
+                time={this.state.time_departure}
+                location={this.state.location_start}
+                recipient="khanders"
+                user={this.state.user}
               />
             </div>
           ) : null}

@@ -1,9 +1,23 @@
 import React, { Component } from 'react';
 import '../styles/MatchedUser.css';
+import axios from 'axios';
 
 class MatchedUser extends Component {
   constructor(props) {
     super(props);
+
+    this.confirmHandler = this.confirmHandler.bind(this)
+  }
+  contactHandler(evt) {
+  }
+  confirmHandler(evt) {
+    axios.get('http://localhost:8080/notify/'+this.props.recipient+'/'+this.props.user)
+    .then(res => {
+        console.log(res.data);
+    }).catch(err => {
+      console.log(err)
+    });
+
   }
 
   render() {
@@ -13,19 +27,24 @@ class MatchedUser extends Component {
       return (
         <div className="matched-user-container">
           <div className="prof-pic" />
-          <div className="matched-user-container-items">
             <div className="profile-name">
               <h4>
-                <strong>{this.props.name}</strong>
+                {this.props.name}
               </h4>
             </div>
-            <div className="time">
-              <h4>{this.props.time}</h4>
+            <div className="user-buttons">
+              {/* <button className="contact" onClick={this.contactHandler}>Contact</button> */}
+              <a className="contact" href={`mailto:${this.props.recipient+"@u.northwestern.edu"}`}>Contact</a>              
+              <button className="confirm" onClick={this.confirmHandler}>Confirm</button>
             </div>
-            <div className="location">
-              <h4>{this.props.location}</h4>
+            <div className="details">
+              {this.props.location}{' '}
+              <strong>{this.props.time}</strong>{' '}
+              -----------------------------------------------------{' '}
+              {this.props.airport}
             </div>
-          </div>
+
+
         </div>
       );
     }

@@ -1,0 +1,24 @@
+.search-history-element{
+    margin: 2%;
+    font-size: 11px;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 13px;
+}
+
+.btn-sh-go{
+    color: white;
+    background: none;
+    border: none;
+    text-align: left;
+}
+.btn-sh-go:hover{
+    width: 100%;
+    background: rgb(80, 98, 128);
+}
+.route-entry{
+    margin-bottom: 5px;
+}
