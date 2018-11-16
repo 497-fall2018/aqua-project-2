@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../styles/Main.css';
+import '../styles/MatchedUser.css';
 import { gql } from 'apollo-boost';
 import { graphql, compose, Query } from 'react-apollo';
 import { getUsersQuery, addRequest, getRequests, getMatches } from '../queries/queries';
@@ -25,24 +26,42 @@ const Requests = requests => {
   );
 };
 
+const locations = {
+  northCampus: 'North Campus',
+  southCampus: 'South Campus',
+  ohare: "O'Hare Internation Airport",
+  midway: 'Midway International Airport',
+};
+
 const GetMatchesQuery = variables => (
   <Query query={getMatches} variables={variables.variables}>
     {({ loading, error, data }) => {
-      if (loading) return null;
+      if (loading) return <h1 className="post">Loading...</h1>;
       if (error) return `Error!: ${error}`;
       console.log(variables);
       console.log(data);
+      if (data.getMatches.length === 0) {
+        return (
+          <div className="post">
+            {' '}
+            Didn't find a ride? Post yours
+            <button className="post-button">Post</button>
+          </div>
+        );
+      }
       return data.getMatches.map(match => {
-        return <div>{match.location_end}</div>;
-
-        // <MatchedUser
-        // showRequest={true}
-        // name={match}
-        // time="10:30AM"
-        // location="South Campus"
-        // airport="O'Hare International Airport"
-        // recipient="jamesxie2019"
-        // user="jamesxie2019"/>;
+        return (
+          <MatchedUser
+            showRequest={true}
+            name={match.request_user.name}
+            time={match.time_departure}
+            location={locations[match.location_start]}
+            airport={locations[match.location_end]}
+            prof_pic={match.request_user.profile_pic}
+            recipient={match.request_user.email}
+            user="jamesxie2019"
+          />
+        );
       });
     }}
   </Query>
@@ -208,15 +227,6 @@ class Main extends Component {
                 recipient="khanders"
                 user={this.state.user}
               /> */}
-              <PostRequest
-                name={this.state.userName}
-                airport={this.state.location_end}
-                date={this.state.date}
-                time={this.state.time_departure}
-                location={this.state.location_start}
-                recipient="khanders"
-                user={this.state.user}
-              />
             </div>
           ) : null}
         </div>

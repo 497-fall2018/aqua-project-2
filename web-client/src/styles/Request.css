@@ -1,18 +1,18 @@
 .demo-card-square.mdl-card {
-    width: 320px;
-    height: 320px;
-  }
-  .demo-card-square > .mdl-card__title {
-    color: #fff;
-    background: bottom right 15% no-repeat #46B6AC;
-  }
+  width: 320px;
+  height: 320px;
+}
+.demo-card-square > .mdl-card__title {
+  color: #fff;
+  background: bottom right 15% no-repeat #46b6ac;
+}
 
-  .destinationTitle{
-    color: black;
-    font-size: 27px;
-  }
+.destinationTitle {
+  color: black;
+  font-size: 27px;
+}
 
-.logo{
+.logo {
   margin-left: 10px;
   margin-right: 10px;
 }
@@ -43,8 +43,8 @@
   box-shadow: 0 20px 60px 0 rgba(0, 0, 10, 0.1);
 }
 .request-ride-submitted {
-
-  border-bottom: 1px solid #6EB8ED;
+  z-index: 100;
+  border-bottom: 1px solid #6eb8ed;
   position: absolute;
   top: 40px;
   padding-bottom: 2%;
@@ -71,12 +71,12 @@
   width: 100%;
 }
 
-select{
+select {
   border: 1px solid #e1e1e1;
   background-color: white;
 }
 
-input{
+input {
   border-radius: 5px;
   border: 1px solid #e1e1e1;
   padding-left: 5px;
@@ -85,15 +85,15 @@ input{
 .request-ride-time-container {
   /* Rectangle: */
   /* box-shadow: inset 0 3px 3px 0 rgba(0,0,0,0.50); */
-  flex: .5;
+  flex: 0.5;
   margin-right: 20px;
   margin-top: -10px;
 }
-.request-ride-time-input{
+.request-ride-time-input {
   width: 100%;
 }
 .request-ride-date-container {
-  flex: .5;
+  flex: 0.5;
   margin-right: 20px;
   margin-top: -10px;
 }
@@ -108,7 +108,7 @@ input{
 }
 .request-ride-pickup-input {
   border-radius: 5px;
-  width: 100%
+  width: 100%;
 }
 
 .request-ride-submit {

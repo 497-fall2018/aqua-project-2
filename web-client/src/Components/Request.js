@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import '../styles/Request.css';
+import { Button } from 'react-bootstrap';
 
 class Request extends Component {
   constructor(props) {
@@ -108,9 +109,9 @@ class Request extends Component {
           </select>
         </div>
 
-        <button className="request-ride-submit" onClick={this.props.onSubmitHandler}>
+        <Button className="request-ride-submit" onClick={this.props.onSubmitHandler}>
           Find a ride
-        </button>
+        </Button>
       </div>
     );
   }

@@ -110,6 +110,7 @@ const RootQuery = new GraphQLObjectType({
       async resolve(parent, args) {
         console.log(args);
         const { date, location_start, location_end, time_departure } = args;
+        // let fixedTime = time_departure.split('').slice(time_departure.length-2,)
         const res = await db.query(
           `SELECT * from requests WHERE date='${date}' AND time_departure='${time_departure}' AND location_start='${location_start}' AND location_end='${location_end}'`
         );

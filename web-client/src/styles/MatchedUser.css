@@ -1,13 +1,13 @@
 .matched-user-container {
   /* background: rgb(231, 230, 230); */
   margin-left: 15%;
-  margin-top:4%;
+  margin-top: 10%;
   width: 70%;
   height: 28%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  border: 1px solid #6EB8ED;
+  border: 1px solid #6eb8ed;
   border-radius: 30px;
 }
 
@@ -39,29 +39,29 @@ h4 {
   font-size: 17px;
   margin: auto auto;
 }
-.user-buttons{
-  margin-top:-7.5%;
+.user-buttons {
+  margin-top: -7.5%;
   margin-left: 70%;
 }
-.contact{
+.contact {
   background: none;
   border-radius: 10%;
   margin-right: 15px;
-  border:none;
+  border: none;
 }
-.contact:hover{
+.contact:hover {
   background: rgb(189, 189, 189);
   border-radius: 10%;
   margin-right: 15px;
   color: white;
 }
-.confirm{
-  background: rgb(37,52,74);
+.confirm {
+  background: rgb(37, 52, 74);
   border: 1px;
   border-radius: 10%;
   color: white;
 }
-.confirm:hover{
+.confirm:hover {
   background: black;
   border-radius: 10%;
   color: white;

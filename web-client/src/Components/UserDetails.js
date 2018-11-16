@@ -17,6 +17,7 @@ class UserDetails extends Component {
       showPastRides: true,
     };
   }
+
   handleData(data) {
     this.setState({
       showPastRides: data,
@@ -25,10 +26,11 @@ class UserDetails extends Component {
 
   render() {
     return (
-      <div className="userdetails-container"> 
-      {this.state.showPastRides ?
-        (<div><UserProfile handlerFromParant={this.handleData}/>
-          {/* <div className="rides">
+      <div className="userdetails-container">
+        {this.state.showPastRides ? (
+          <div>
+            <UserProfile handlerFromParant={this.handleData} />
+            {/* <div className="rides">
           <header>
             <h4>
             <em><strong>Scheduled Rides</strong></em>
@@ -40,50 +42,48 @@ class UserDetails extends Component {
           <div className = 'search-history'>
             <SearchHistory/>
           </div> */}
-          <div>
-    <div className = 'rides'>
+            <div>
+              <div className="rides">
+                <Accordion atomic>
+                  <AccordionItem title="Scheduled Rides">
+                    <ScheduledRides />
+                  </AccordionItem>
 
-    <Accordion atomic={true}>
+                  <AccordionItem title="Past Rides" />
 
-      <AccordionItem title="Scheduled Rides">
-        <ScheduledRides/>
-        <ScheduledRides/>
-      </AccordionItem>
-
-      <AccordionItem title="Past Rides">
-        
-      </AccordionItem>
-
-      <AccordionItem title="Search History">
-      <SHElement
-        airport= "O'Hare International Airport"
-        time="10:30AM"
-        date="Date"
-        location="South Campus"/> 
-      <SHElement
-        airport= "Midway International Airport"
-        time="10:40AM"
-        date="Date"
-        location="North Campus"/> 
-      <SHElement
-        airport= "O'Hare International Airport"
-        time="10:30AM"
-        date="Date"
-        location="South Campus"/> 
-      <SHElement
-        airport= "O'Hare International Airport"
-        time="10:30AM"
-        date="Date"
-        location="South Campus"/> 
-    
-      </AccordionItem>
-
-    </Accordion>
-    </div>
-  </div>
-        </div>)
-        : <EditProfile handlerFromParant={this.handleData}/>}
-        
+                  <AccordionItem title="Search History">
+                    <SHElement
+                      airport="O'Hare International Airport"
+                      time="10:30AM"
+                      date="Date"
+                      location="South Campus"
+                    />
+                    <SHElement
+                      airport="Midway International Airport"
+                      time="10:40AM"
+                      date="Date"
+                      location="North Campus"
+                    />
+                    <SHElement
+                      airport="O'Hare International Airport"
+                      time="10:30AM"
+                      date="Date"
+                      location="South Campus"
+                    />
+                    <SHElement
+                      airport="O'Hare International Airport"
+                      time="10:30AM"
+                      date="Date"
+                      location="South Campus"
+                    />
+                  </AccordionItem>
+                </Accordion>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <EditProfile handlerFromParant={this.handleData} />
+        )}
       </div>
     );
   }

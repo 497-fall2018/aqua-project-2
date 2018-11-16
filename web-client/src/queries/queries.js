@@ -61,6 +61,12 @@ const getMatches = gql`
       location_start
       location_end
       time_departure
+      request_user {
+        name
+        email
+        profile_pic
+        id
+      }
     }
   }
 `;
