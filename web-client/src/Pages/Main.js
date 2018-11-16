@@ -1,21 +1,13 @@
 import React, { Component } from 'react';
 import '../styles/Main.css';
 import { gql } from 'apollo-boost';
-import { graphql, compose } from 'react-apollo';
-import { getUsersQuery, addRequest, getRequests } from '../queries/queries';
+import { graphql, compose, Query } from 'react-apollo';
+import { getUsersQuery, addRequest, getRequests, getMatches } from '../queries/queries';
 import UserDetails from '../Components/UserDetails';
 import MatchedUser from '../Components/MatchedUser';
 import Request from '../Components/Request';
 import RequestSubmitted from '../Components/RequestSubmitted';
 import Rides from '../Rides';
-
-//     mutation {
-//         addRequest(destination: "O'Hare", timeBuffer: 1111) {
-//           destination
-//           timeBuffer
-//         }
-//       }
-// }`
 
 const Requests = requests => {
   console.log(requests);
@@ -31,17 +23,33 @@ const Requests = requests => {
   );
 };
 
+const GetMatchesQuery = variables => (
+  <Query query={getMatches} variables={variables.variables}>
+    {({ loading, error, data }) => {
+      if (loading) return null;
+      if (error) return `Error!: ${error}`;
+      console.log(variables);
+      console.log(data);
+      return data.getMatches.map(match => {
+        return <div>{match.location_start}</div>;
+      });
+    }}
+  </Query>
+);
+
 class Main extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      // destination: '',
-      // timeBuffer: '',
-      // time: '',
+      destination: '',
+      date: '',
+
+      time_buffer: 0,
+      time: '',
       showRequest: false,
     };
-
+    this.onSubmitHandler = this.onSubmitHandler.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -49,23 +57,46 @@ class Main extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
+  // getMatchesQuery() {
+  //   const { date, location_end, time_departure, location_start, time_buffer } = this.state;
+  //   let variables = {
+  //     date: date,
+  //     time_buffer: time_buffer,
+  //     location_start: location_start,
+  //     location_end: location_end,
+  //     time_departure: time_departure,
+  //   };
+
+  //   console.log(variables);
+  //   return (
+  //     <Query query={getMatches} variables={variables}>
+  //       {' '}
+  //       {({ loading, error, data }) => {
+  //         if (loading) return null;
+  //         if (error) return `Error!: ${error}`;
+  //         console.log(data)
+  //         return data;
+  //       }}
+  //     </Query>
+  //   );
+  // }
+
   onSubmitHandler = e => {
-    const { addRequest, getRequests } = this.props;
+    const { addRequest, getMatches } = this.props;
     const { date, location_end, time_departure, location_start, time_buffer } = this.state;
     e.preventDefault();
     console.log(e);
-    console.log(addRequest);
 
     //this is the problem below
-    addRequest({
-      variables: {
-        date: date,
-        time_buffer: time_buffer,
-        location_start: location_start,
-        location_end: location_end,
-        time_departure: time_departure,
-      },
-    });
+    // addRequest({
+    //   variables: {
+    //     date: date,
+    //     time_buffer: time_buffer,
+    //     location_start: location_start,
+    //     location_end: location_end,
+    //     time_departure: time_departure,
+    //   },
+    // });
     // .then(getRequests.refetch());
     // console.log(e.target);
     this.setState({ showRequest: true });
@@ -75,11 +106,19 @@ class Main extends Component {
 
   render() {
     const { getRequests } = this.props;
+    const { date, location_end, time_departure, location_start, time_buffer } = this.state;
+    let variables = {
+      date: date,
+      time_buffer: time_buffer,
+      location_start: location_start,
+      location_end: location_end,
+      time_departure: time_departure,
+    };
     return (
       <div className="main-body">
-        {/* <Requests requests={getRequests} /> */}
-        {console.log(getRequests.loading)}
         <UserDetails />
+        {console.log(variables)}
+        {this.state.showRequest ? <GetMatchesQuery variables={variables} /> : null}
         {/* <Rides /> */}
         {/* SELECT Destination */}
         <div className="feed-container">
@@ -130,66 +169,13 @@ class Main extends Component {
             </div>
           ) : null}
         </div>
-
-        {/* <div className="time-inputs">
-          <input
-            type="number"
-            min="1"
-            max="9"
-            value={digits[0]}
-             name={0}
-            onChange={this.handleTimeChange}
-          />
-          <input
-            type="number"
-            min="0"
-            max="9"
-            value={digits[1]}
-            name={1}
-            onChange={this.handleTimeChange}
-          />
-          <input
-            type="number"
-            min="0"
-            max="9"
-            value={digits[2]}
-            name={2}
-            onChange={this.handleTimeChange}
-          />
-          <select>
-            <option>AM</option>
-            <option>PM</option>
-          </select>
-        </div> */}
-
-        {/* SELECT time Buffer */}
-        {/* <select name="timeBuffer" onChange={this.handleChange}>
-          <option value=></option>
-        </select> */}
-
-        {/*
-        <input
-          value={timeBuffer}
-          name="timeBuffer"
-          onChange={this.handleChange}
-          placeholder="How long are you willing to wait?"
-          description="Time Buffer"
-          type="text"
-        />
-        <button type="submit" onClick={this.handleSubmit}>
-          {' '}
-          Submit!{' '}
-        </button>
-
-        <ul>
-          <Requests data={getRequests} />
-        </ul> */}
       </div>
     );
   }
 }
 
 export default compose(
+  graphql(getMatches, { name: 'getMatches' }),
   graphql(getUsersQuery, { name: 'getUsersQuery' }),
   graphql(addRequest, { name: 'addRequest' }),
   graphql(getRequests, { name: 'getRequests' })
