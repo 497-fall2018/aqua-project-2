@@ -31,6 +31,7 @@ const RequestType = new GraphQLObjectType({
     location_start: { type: GraphQLString },
     location_end: { type: GraphQLString },
     time_departure: { type: GraphQLString },
+    id: { type: GraphQLID },
     // destination: { type: GraphQLString },
     time_buffer: { type: GraphQLInt },
     date: { type: GraphQLString },
@@ -88,6 +89,25 @@ const RootQuery = new GraphQLObjectType({
         return res.rows;
       },
     },
+    getMatches: {
+      type: new GraphQLList(RequestType),
+      args: {
+        date: { type: GraphQLString },
+        time_buffer: { type: GraphQLInt },
+        location_start: { type: GraphQLString },
+        location_end: { type: GraphQLString },
+        time_departure: { type: GraphQLString },
+      },
+      async resolve(parent, args) {
+        console.log(args);
+        const { date, location_start, location_end, time_departure } = args;
+        const res = await db.query(
+          `SELECT * from requests WHERE date='${date}' AND time_departure='${time_departure}' AND location_start='${location_start}' AND location_end='${location_end}'`
+        );
+        console.log(res.rows);
+        return res.rows.length > 0 ? res.rows : [];
+      },
+    },
   },
 });
 
@@ -122,11 +142,11 @@ const Mutation = new GraphQLObjectType({
         time_departure: { type: GraphQLString },
       },
       async resolve(parent, args) {
-        console.log(args);
+        const id = await db.query('SELECT max(request_id) FROM requests');
         const res = await db.query(
-          `INSERT INTO requests VALUES (5, '${args.location_start}', '${args.location_end}', '${
-            args.time_departure
-          }', '${args.time_buffer}', 1, '${args.date}')`,
+          `INSERT INTO requests VALUES (${id.rows[0].max + 1}, '${args.location_start}', '${
+            args.location_end
+          }', '${args.time_departure}', '${args.time_buffer}', 1, '${args.date}')`,
           err => {
             if (err) console.log(err);
           }

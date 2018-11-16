@@ -48,7 +48,7 @@ class Request extends Component {
 
     return (
       <div className={this.state.tempClass}>
-        <img className="logo" src={require('../assets/images/FSLogo.svg')} />
+        {/* <img className="logo" src={require('../assets/images/FSLogo.svg')} /> */}
         <div className="request-ride-airport-container">
           <div className="request-ride-category-header">Airport</div>
           <select
@@ -81,6 +81,15 @@ class Request extends Component {
             type="time"
             name="time_departure"
             value={time_departure}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="request-ride-time-container">
+          <div className="request-ride-category-header">Time Buffer</div>
+          <input
+            className="request-ride-time-input"
+            type="number"
+            name="time_buffer"
             onChange={handleChange}
           />
         </div>

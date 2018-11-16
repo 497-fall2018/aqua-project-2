@@ -21,7 +21,7 @@ class RequestSubmitted extends Component {
 
     return (
       <div className="request-ride-submitted">
-        <img className="logo" src={require('../assets/images/FSLogo.svg')} />
+        {/* <img className="logo" src={require('../assets/images/FSLogo.svg')} /> */}
         <div className="request-ride-airport-container">
           <div className="request-ride-category-header">Airport</div>
           <select
