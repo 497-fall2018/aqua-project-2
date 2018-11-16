@@ -7,18 +7,20 @@ class SHElement extends Component {
 
     this.state = {};
   }
-  searchHandler(evt) {
-    
-  }
+
+  searchHandler(evt) {}
 
   render() {
     return (
       <div className="search-history-element">
-        <button className="btn-sh-go"onClick={this.searchHandler}>
-            <div className="route-entry">
-                {this.props.location}{' '}-->{' '}{this.props.airport}</div>
-            <div className="time-entry">
-                {this.props.time}{' '}{this.props.date}</div></button>
+        <button className="btn-sh-go" onClick={this.searchHandler}>
+          <div className="route-entry">
+            {this.props.location} --> {this.props.airport}
+          </div>
+          <div className="time-entry">
+            {this.props.time} {this.props.date}
+          </div>
+        </button>
       </div>
     );
   }

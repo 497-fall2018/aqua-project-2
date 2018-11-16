@@ -1,49 +1,48 @@
 /* header{
     border-bottom: 1px solid white;
 } */
-.current-ride-container{
-    border: 1px solid white;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    /* margin-top: 5%; */
-    border-radius: 5px;
-    padding-left: 3.5%;
-    padding-top: 2%;
-    padding-bottom:3.5%;
-    padding-right:3.5%;
-    font-size: 13px;
-    margin-bottom:15px;
-    margin-right:5px;
-    margin-top:15px;
-    
+.current-ride-container {
+  border: 1px solid white;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  /* margin-top: 5%; */
+  border-radius: 5px;
+  padding-left: 3.5%;
+  padding-top: 2%;
+  padding-bottom: 3.5%;
+  padding-right: 3.5%;
+  font-size: 13px;
+  margin-bottom: 15px;
+  margin-right: 5px;
+  margin-top: 15px;
 }
-.Rider-container{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    margin-top:8px;
+.Rider-container {
+  color: black;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-top: 8px;
 }
-.Date{
-    margin-left: 12%;
+.Date {
+  margin-left: 12%;
 }
-.Time{
-    margin-left: 12%;
+.Time {
+  margin-left: 12%;
 }
-.riderName{
-    margin-left: 10px; 
-    margin-right:40px;
+.riderName {
+  margin-left: 10px;
+  margin-right: 40px;
 }
-.rider-info{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    margin-top:3px;
+.rider-info {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-top: 3px;
 }
-.rider-contact{
-    background: rgb(37,52,74);
-    border: 1px solid white;
-    border-radius: 5px;
-    margin-left: auto;
+.rider-contact {
+  background: rgb(37, 52, 74);
+  border: 1px solid white;
+  border-radius: 5px;
+  margin-left: auto;
 }
-

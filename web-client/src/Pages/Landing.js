@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import '../styles/Landing.css';
 import FormContainer from '../Components/FormContainer';
 import history from '../history';
-//import {GoogleLogin} from 'react-google-login';
+// import {GoogleLogin} from 'react-google-login';
 
 class Landing extends Component {
   constructor(props) {
     super(props); // access props
-
   }
+
   render() {
-    return(
+    return (
       <div className="landing">
         <div className="landing-image" />
         <div className="login-container">

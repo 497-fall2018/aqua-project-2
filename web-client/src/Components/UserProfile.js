@@ -45,23 +45,21 @@ class UserProfile extends Component {
         <div className="contact-details">
           <header>
             <h4>
-              <em><strong>Contact</strong></em>
+              <em>
+                <strong>Contact</strong>
+              </em>
             </h4>
           </header>
-          <div className="phone-details">
-            Phone: {this.state.Phone}
-          </div>
+          <div className="phone-details">Phone: {this.state.Phone}</div>
 
-          <div className="email-details">
-            {' '}
-            Email: {this.state.Email}
-          </div>
+          <div className="email-details"> Email: {this.state.Email}</div>
         </div>
         <div className="bio-details">
           <header>
             <h4>
-            <em><strong>Bio
-              </strong></em>
+              <em>
+                <strong>Bio</strong>
+              </em>
             </h4>
           </header>
           <div className="bio-info">{this.state.Bio}</div>

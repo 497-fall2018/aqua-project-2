@@ -35,6 +35,15 @@ const RequestType = new GraphQLObjectType({
     // destination: { type: GraphQLString },
     time_buffer: { type: GraphQLInt },
     date: { type: GraphQLString },
+    request_user: {
+      type: UserType,
+      async resolve(parent) {
+        console.log(parent);
+        const { id } = parent;
+        const res = await db.query(`SELECT * from users WHERE id =${id}`);
+        return res.rows[0];
+      },
+    },
   }),
 });
 

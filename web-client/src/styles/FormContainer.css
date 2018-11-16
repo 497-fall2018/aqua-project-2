@@ -1,29 +1,29 @@
-
 .background-rect {
-    text-align: center;
-    height: 100%;
+  text-align: center;
+  height: 100%;
 
-    display: table-cell;
+  display: table-cell;
 
-    padding: 30px;
+  padding: 30px;
 }
 
+.register__error {
+  color: red;
+  text-align: left;
+  margin-top: 24px;
+}
 
-.form-button{
-    margin-top: 10px;
-    width: 100%;
+.form-button {
+  margin-top: 10px;
+  width: 100%;
 }
 
 .input-login {
-    width: 100%;
+  width: 100%;
 }
 
-
-
-.inputs{
-    margin-bottom: 30px;
-    text-align: left;
-    text-decoration-color: black;
+.inputs {
+  margin-bottom: 30px;
+  text-align: left;
+  /* text-decoration-color: black; */
 }
-
-

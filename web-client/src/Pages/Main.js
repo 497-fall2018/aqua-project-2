@@ -33,7 +33,16 @@ const GetMatchesQuery = variables => (
       console.log(variables);
       console.log(data);
       return data.getMatches.map(match => {
-        return <div>{match.location_start}</div>;
+        return <div>{match.location_end}</div>;
+
+        // <MatchedUser
+        // showRequest={true}
+        // name={match}
+        // time="10:30AM"
+        // location="South Campus"
+        // airport="O'Hare International Airport"
+        // recipient="jamesxie2019"
+        // user="jamesxie2019"/>;
       });
     }}
   </Query>
@@ -50,12 +59,12 @@ class Main extends Component {
       time_buffer: 0,
       time: '',
       showRequest: false,
-      userName: "Willie Wildcat",
+      userName: 'Willie Wildcat',
       user: 'jamesxie2019',
-      location_end: "default",
-      date: "default",
-      time_departure: "default",
-      location_start: "default",
+      location_end: 'default',
+      date: 'default',
+      time_departure: 'default',
+      location_start: 'default',
     };
     this.onSubmitHandler = this.onSubmitHandler.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -63,7 +72,7 @@ class Main extends Component {
 
   handleChange(e) {
     this.setState({ [e.target.name]: e.target.value });
-    console.log(e.target.value)
+    console.log(e.target.value);
   }
 
   // getMatchesQuery() {
@@ -125,26 +134,26 @@ class Main extends Component {
     };
     return (
       <div className="main-body">
-        <UserDetails />
         {console.log(variables)}
-        {this.state.showRequest ? <GetMatchesQuery variables={variables} /> : null}
+
+        {/* {this.state.showRequest ? <GetMatchesQuery variables={variables} /> : null} */}
+
         {/* <Rides /> */}
         {/* <Requests requests={getRequests} />
         {console.log(getRequests.loading)} */}
-          <UserDetails />
+        <UserDetails />
 
         {/* SELECT Destination */}
         <div className="feed-container">
           {this.state.changeRequest ? (
             <RequestSubmitted />
           ) : (
-            <Request 
-              handleChange={this.handleChange} 
-              onSubmitHandler={this.onSubmitHandler} />
+            <Request handleChange={this.handleChange} onSubmitHandler={this.onSubmitHandler} />
           )}
           {this.state.showRequest ? (
             <div className="profiles">
-              <MatchedUser
+              <GetMatchesQuery variables={variables} />
+              {/* <MatchedUser
                 showRequest={true}
                 name="Daniel Kim"
                 time="10:30AM"
@@ -198,7 +207,7 @@ class Main extends Component {
                 airport="O'Hare International Airport"
                 recipient="khanders"
                 user={this.state.user}
-              />
+              /> */}
               <PostRequest
                 name={this.state.userName}
                 airport={this.state.location_end}
